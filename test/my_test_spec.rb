@@ -177,5 +177,10 @@ describe "Splunk Movie list Api test" do
       puts res
       expect(res["message"]).to eq("Splunking your submission using monkeys ..... success... movie posted to catalog")
     end
+      it "posted movie should show in movies list" do
+      titles = @res["results"].map {|t| t['title']}
+      expect(titles.include?("Avatar Batman")).to be true
+        
+      end
   end
 end
