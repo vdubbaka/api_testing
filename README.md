@@ -39,5 +39,22 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Bugs found in this project
 
+1. For  "id": 49026,  "id": 20776,   "id": 155, neither title or original_title includes “batman”
+2. All attributes are not well defined as some have poster_path, backdrop_path and some do not 
+3. Count parameter is not functioning as defined 
+4. title and original_title what do they represent?, Should they be same? what does name attribute “q” refer to title or original title
+results are not sorted
+5. Posting is not creating movie in in database but thowing success message
+
+SPL-001: No two movies should have the same image :
+3 movies have same images
+for  "id": 186579, "id": 93560, poster paths are same and for “id": 138757, backdrop path is same as these.
+
+SPL-002: All poster_path links must be valid. poster_path link of null is also acceptable
+4 movies do not have poster_paths or backdrop_path
 
 
+SPL-003: Sorting requirement. Rule #1 Movies with genre_ids == null should be first in response. Rule #2, if multiple movies have genre_ids == null, then sort by id (ascending). For movies that have non-null genre_ids, results should be sorted by id (ascending)
+Not sorted as per business rule SPL 003 where Movies with genre_ids == null should be first in response.
+
+SPL-004, SPL-005, SPL-006 meets the rules.
